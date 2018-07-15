@@ -1,5 +1,6 @@
-var staticCacheName ='restaurant-app-v1';
-//lkxkzkjsdjjsjdjks
+var staticCacheName ='restaurant-app-v2';
+
+// In the service worker lifecycle at install event , create the cache and cache the URLs
 self.addEventListener('install',function(event){
 	var urlsToCache = [
 		'/',
@@ -32,7 +33,7 @@ self.addEventListener('install',function(event){
   );
 })
 
-
+// In case website goes offline or there is slow connectivity provide data from cache for better user experience
 self.addEventListener('fetch', function(event) {
   event.respondWith(
     caches.match(event.request)
@@ -46,12 +47,13 @@ self.addEventListener('fetch', function(event) {
   );
 });
 
+// In case the cache becomes active delete the previous cachess
 self.addEventListener('activate',function(event){
 	event.waitUntil(
 			caches.keys().then(function(cacheNames){
 				return Promise.all(
 					cacheNames.filter(function(cacheName){
-					return cacheName.startsWith('restaurant-app-') 
+					return cacheName.startsWith('restaurant-app-')
 					&& cacheName != staticCacheName
 				}).map(function(cacheName){
 					return caches.delete(cacheName)
