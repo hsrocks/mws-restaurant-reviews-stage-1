@@ -28,30 +28,49 @@ a:hover, a:focus {
 a img{
 	border: none 0px #fff;
 }
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: Arial, Helvetica, sans-serif;
   margin: 0 0 20px;
 }
-article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+article,
+aside,
+canvas,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
 	display: block;
 }
 /*Skip Navigation to main content
-This link will be invisible for sighted user but the user with 
-visual impairment or some motor impairment 
-can see this link with keyboard*/
+This link will be invisible for sighted user but the user with
+visual impairment or some motor impairment
+can focus this link with keyboard*/
 .skip{
   height: 25px;
 }
-a.SkipNav {
-    left:-999px;
-    position:absolute;
-    top:auto;
-    width:1px;
-    height:1px;
-    overflow:hidden;
-    z-index:-999;
+
+/*The Link will be out of the screen until its focused*/
+a.skip-nav {
+    left: -999px;
+    position: absolute;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    z-index: -999;
 }
-a.SkipNav:focus, a.SkipNav:active {
+/*Once focused the link will be active*/
+a.skip-nav:focus, a.skip-nav:active {
     color: black;
     left: auto;
     width: auto;
@@ -60,9 +79,11 @@ a.SkipNav:focus, a.SkipNav:active {
     text-align:center;
     font-size:12px;
     margin: 4px;
-    z-index:999;
+    z-index: 999;
     outline-width: 2px;
 }
+
+
 #maincontent {
   background-color: #f3f3f3;
   min-height: 100%;
@@ -77,12 +98,16 @@ a.SkipNav:focus, a.SkipNav:active {
   text-transform: uppercase;
 }
 /* ====================== Navigation ====================== */
+
+/*Setting the navigation bar*/
 nav {
   width: 100%;
   height: 80px;
   background-color: #252831;
   text-align:center;
 }
+
+/*Setting the header on the navigation bar*/
 nav h1 {
   position: relative;
 float: left;
@@ -90,6 +115,8 @@ top: 50%;
 left: 50%;
 transform: translate(-50%, -50%);
 }
+
+
 nav h1 a {
   color: #fff;
   font-size: 14pt;
@@ -97,6 +124,7 @@ nav h1 a {
   letter-spacing: 10px;
   text-transform: uppercase;
 }
+
 #breadcrumb {
     max-width: 100%;
     padding: 10px 10px 16px;
@@ -129,12 +157,14 @@ nav h1 a {
     color: #01447e;
     text-decoration: underline;
 }
+
 /* ====================== Map ====================== */
 #map {
   height: 400px;
   width: 100%;
   background-color: #ccc;
 }
+
 /* ====================== Restaurant Filtering ====================== */
 .filter-options {
   display: flex;
@@ -145,6 +175,8 @@ nav h1 a {
   background-color: #1D0CFF;
   align-items: center;
 }
+
+/* Header*/
 .filter-options h2 {
   color: white;
   font-size: 1rem;
@@ -153,10 +185,12 @@ nav h1 a {
   margin: 0 20px;
   font-weight: bolder;
 }
+
+/* Content*/
 .filter-options select {
   background-color: white;
   border: 1px solid #fff;
-  font-family: Arial,sans-serif;
+  font-family: arial,sans-serif;
   font-size: 11pt;
   height: 35px;
   letter-spacing: 0;
@@ -165,9 +199,13 @@ nav h1 a {
   width: 80%;
   font-weight: bold;
 }
+
+/*Once the option is focused setting tge border
+so that it can be focused and is more visible */
 .filter-options select:focus {
   border: 4px solid orange;
 }
+
 .filter-options select #neighborhoods-select{
   background: yellow
 }
@@ -183,6 +221,9 @@ nav h1 a {
   padding: 0px;
   justify-content: flex-start;
 }
+
+/*Content*/
+/*On full screen in a single row we can see 3 restaurants*/
 #restaurants-list li {
   background-color: #fff;
   border: 2px solid #ccc;
@@ -199,6 +240,8 @@ nav h1 a {
   flex-wrap: wrap;
   justify-content: space-between;
 }
+
+
 #restaurants-list .restaurant-img {
   background-color: #ccc;
   display: block;
@@ -235,19 +278,22 @@ nav h1 a {
   outline-color: orange;
 }
 
-
+/*For the landscape view or more medium screen device there will be 2 restaurant informtation shown in a single row*/
 @media  screen and (max-width: 1200px ) and (min-width:780px)  {
   #restaurants-list {
   display: flex;
   align-items: flex-start;
   flex-wrap: wrap;
   justify-content: flex-start;
-}
+  }
+
   #restaurants-list li {
     width: calc((100% - 50px)/2);
   }
+
 }
 
+/*For smaller screen device*/
 @media screen and (max-width: 779px)   {
   #restaurants-list {
   display: flex;
@@ -281,29 +327,16 @@ nav h1 a {
 
 
 /* ====================== Restaurant Details ====================== */
-table
-{ 
-margin-left: auto;
-margin-right: auto;
-}
-
-table, th, td {
-    border: 1px solid black;
-    padding: 3px;
-    border-collapse: collapse;
-}
-caption{
-  font-size: 16px;
-  font-weight: bolder;
-}
+/* Header */
 .inside header {
   position: relative;
   top: 0;
   width: 100%;
   z-index: 1000;
 }
+
+/* Map */
 .inside #map-container {
-  
   height: 400px;
   position: relative;
   width: 100%;
@@ -313,6 +346,8 @@ caption{
   height: 100%;
   width: 100%;
 }
+
+/* Footer */
 .inside #footer {
   bottom: 0;
   position: absolute;
@@ -320,6 +355,8 @@ caption{
   padding-left:0px;
   padding-right: 0px;
 }
+
+/* Restaurant Details */
 #restaurant-name {
   color: #f18200;
   font-family: Arial,sans-serif;
@@ -337,13 +374,32 @@ caption{
 #restaurant-img {
 	width: 50%;
   height: 400px;
-  padding:0px 10px;
+  padding: 0px 10px;
 }
+
+/*Setting the restaurant timing and day table border ,caption and margin*/
+table
+{
+margin-left: auto;
+margin-right: auto;
+}
+table, th, td {
+    border: 1px solid black;
+    padding: 3px;
+    border-collapse: collapse;
+}
+caption{
+  font-size: 16px;
+  font-weight: bolder;
+}
+
 #restaurant-address {
   font-size: 12pt;
   margin: 10px 0px;
   text-align: center;
 }
+
+/*Arrange restaurant image and schedule in the row for large screen devices or few of mid screen devices*/
 #restaurant-schedule{
   display: flex;
   flex-direction: row;
@@ -367,8 +423,10 @@ caption{
   padding-top: 10px;
   width: 100%;
 }
+
+/* Reviews */
 #reviews-container {
-  padding-bottom:  80px;
+  padding-bottom: 80px;
 }
 #reviews-container h2 {
   color: #f58500;
@@ -384,7 +442,6 @@ caption{
   width: 100%;
   padding: 0;
   margin: 0 auto;
-
 }
 #reviews-list li {
   background-color: #fff;
@@ -400,11 +457,13 @@ caption{
 #reviews-list li p {
   margin: 0 auto;
 }
-#reviews-list li p:nth-of-type(1) {
+
+/*Arrange reviewer name inline so that data and reviewer name can be on same  line*/
+.reviewer-name {
   display: inline;
-  font-weight: bold; 
+  font-weight: bold;
 }
-#reviews-list li p:nth-of-type(2) {
+.review-date {
   display: inline;
   float: right;
 }
@@ -413,17 +472,22 @@ caption{
   font-size: 14px;
   margin-top: 10px;
 }
+
+/*For midscreen or small screen device arrange schedule table and restaurant image in column */
 @media screen and (max-width: 755px) {
-  #restaurant-schedule{
+  #restaurant-schedule {
     display: flex;
     flex-direction: column;
   }
-  #restaurant-img{
+
+  #restaurant-img {
     padding: 0;
     width: 100%;
     height: 350px;
   }
-  #restaurant-hours  {
+
+  #restaurant-hours {
     margin: 0 auto;
   }
+
 }
