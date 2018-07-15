@@ -30,10 +30,13 @@
     <!-- End breadcrumb -->
     <!-- End nav -->
   </header>
+  <!-- End header -->
+
+  <!-- Added the skip link -->
   <div role="link" class="skip">
     <a href="#restaurant-container" class="skip-nav">Jump to Restaurant Information</a>
   </div>
-  <!-- End header -->
+
 
   <!-- Beginning main -->
   <main id="maincontent">
@@ -45,12 +48,16 @@
     <!-- Beginning restaurant -->
     <section id="restaurant-container" aria-label="Restaurants Details" role="region">
       <h1 id="restaurant-name"></h1>
+
+      <!-- In order to arrange image and the restaurant hours in row/column placed them inside the div -->
       <div role="region" id="restaurant-schedule">
         <img id="restaurant-img">
         <table id="restaurant-hours">
           <caption>Restaurant Schedule</caption>
         </table>
       </div>
+      <!-- div ends -->
+
       <p id="restaurant-cuisine"></p>
       <p id="restaurant-address"></p>
     </section>
