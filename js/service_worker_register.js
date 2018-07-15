@@ -2,14 +2,11 @@
 // register the service worker at page load .
 if (navigator.serviceWorker) {
   window.addEventListener('load', function() {
-    navigator.serviceWorker.register('/sw.js').then(function(registration) {
-
+    navigator.serviceWorker.register('/sw.js').then(function(reg) {
       // Registration was successful
-      console.log('ServiceWorker registration successful with scope: ', registration.scope);
-
-      //User is either using the latest version of service worker
+      console.log('ServiceWorker registration successful with scope: ', reg.scope);
     }, function(err) {
-      // registration failed :(
+      // registration failed
       console.log('ServiceWorker registration failed: ', err);
     });
   });
